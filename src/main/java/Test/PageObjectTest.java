@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class PageObjectTest {
+
     private WebDriverManager driverManager;
     private WebDriver driver;
 
