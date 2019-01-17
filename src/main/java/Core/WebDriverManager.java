@@ -8,6 +8,7 @@ public class WebDriverManager {
 
     private WebDriver driver;
     private DriverType driverType;
+
     public WebDriverManager(DriverType driverType) {
         this.driverType = driverType;
         setDriver();
@@ -34,6 +35,9 @@ public class WebDriverManager {
 
 
     public WebDriver getDriver() {
+        if (driver == null) {
+            setDriver();
+        }
         return driver;
     }
 
