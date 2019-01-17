@@ -62,7 +62,5 @@
             <artifactId>awaitility-proxy</artifactId>
             <version>3.0.0</version>
         </dependency>
-
     </dependencies>
-
 </project>

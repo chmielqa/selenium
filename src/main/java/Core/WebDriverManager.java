@@ -33,7 +33,6 @@ public class WebDriverManager {
         driver.manage().window().maximize();
     }
 
-
     public WebDriver getDriver() {
         if (driver == null) {
             setDriver();

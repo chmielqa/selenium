@@ -27,4 +27,8 @@ public class HomePageBy {
         return new StringGeneratorPage(driver);
     }
 
+    public String getHeader() {
+        return driver.findElement(containerHeaderLocator).getText();
+    }
+
 }
