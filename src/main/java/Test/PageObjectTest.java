@@ -35,19 +35,18 @@ public class PageObjectTest {
     @Test
     public void shouldLengthOfGeneratedStringBeCorrect() {
         int length=20;
-        driver.get("http://localhost:5000/sel");
+        driver.get("https://chmielqa.herokuapp.com/");
         HomePage page = new HomePage(driver);
         StringGeneratorPage stringGeneratorPage=page.goToStringGenerator();
         stringGeneratorPage.fillFieldLength(String.valueOf(length));
         stringGeneratorPage.fillPossibleChars("abcd");
         stringGeneratorPage.submit();
         assertThat(stringGeneratorPage.getGeneratedString().length()).isEqualTo(length);
-
     }
 
     @Test
     public void shouldHomePageHaveCorrectText() {
-        driver.get("http://localhost:5000/sel");
+        driver.get("https://chmielqa.herokuapp.com/");
         HomePage page = new HomePage(driver);
         assertThat(page.getHeader()).isEqualTo("Strona główna");
     }
