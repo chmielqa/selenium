@@ -1,31 +1,14 @@
 package Web;
 
+import Web.Base.ChmielQaBasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class StringGeneratorPage {
-
-    private WebDriver driver;
-
-    @FindBy(css = "h1")
-    private WebElement pageHeader;
+public class StringGeneratorPage extends ChmielQaBasePage {
 
     @FindBy(css = "#container h2")
     private WebElement containerHeader;
-
-    @FindBy(css = "h3")
-    private WebElement navHeader;
-
-    @FindBy(css = ".nav-item #homePage")
-    private WebElement navHomePage;
-
-    @FindBy(css = ".nav-item #stringGenerator")
-    private WebElement navStringGenerator;
-
-    @FindBy(css = ".nav-item #personalDataGenerator")
-    private WebElement navPersonalDataGenerator;
 
     @FindBy(css = "label[for='stringLength']")
     private WebElement stringLengthLabel;
@@ -47,18 +30,7 @@ public class StringGeneratorPage {
 
 
     public StringGeneratorPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-
-    public HomePage goToHomePage() {
-        navHomePage.click();
-        return new HomePage(driver);
-    }
-
-    public StringGeneratorPage goToPersonalDataGenerator() {
-        navPersonalDataGenerator.click();
-        return new StringGeneratorPage(driver);
+        super(driver);
     }
 
     public void fillFieldLength(String length) {
