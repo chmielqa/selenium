@@ -1,17 +1,16 @@
-package Test;
+package Test.Base;
 
 import Core.DriverType;
 import Core.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
-public class DriverManagerTest {
-    private WebDriverManager driverManager;
-    private WebDriver driver;
+public class BaseTest {
+    protected WebDriverManager driverManager;
+    protected WebDriver driver;
+
 
     @BeforeTest
     public void beforeTest() {
@@ -27,11 +26,4 @@ public class DriverManagerTest {
     public void afterMethod() {
         driverManager.quitDriver();
     }
-
-    @Test
-    public void runGoogleTest() {
-        driver.get("https://www.google.com");
-        Assert.assertEquals("Google", driver.getTitle());
-    }
-
 }

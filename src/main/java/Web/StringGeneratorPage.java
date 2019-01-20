@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 public class StringGeneratorPage extends ChmielQaBasePage {
 
     @FindBy(css = "#container h2")
@@ -33,19 +35,28 @@ public class StringGeneratorPage extends ChmielQaBasePage {
         super(driver);
     }
 
-    public void fillFieldLength(String length) {
+    public StringGeneratorPage fillFieldLength(String length) {
         stringLengthInput.clear();
         stringLengthInput.sendKeys(length);
+        return this;
     }
 
-    public void fillPossibleChars(String length) {
+    public StringGeneratorPage fillPossibleChars(String length) {
         possibleCharactersInput.clear();
         possibleCharactersInput.sendKeys(length);
+        return this;
     }
 
-    public void submit() {
-        submitButton.click();
 
+    public StringGeneratorPage submit() {
+        submitButton.click();
+        return this;
+    }
+
+
+    public StringGeneratorPage assertThatGeneratedStringLengthIsEqualTo(int expectedLength) {
+        assertThat(getGeneratedString().length()).isEqualTo(expectedLength);
+        return this;
     }
 
     public String getGeneratedString() {
